@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">InterviewPaymentApp</string>
     <string name="toolbar_furniture_title">Furniture</string>
+    <string name="toolbar_furniture_details_title">Furniture details</string>
+    <string name="toolbar_furniture_payment_title">Payment</string>
+    <string name="buy_title">Buy</string>
+    <string name="select_payment_card_title">Select payment card</string>
+    <string name="add_new_card_title">Add new card</string>
 </resources>

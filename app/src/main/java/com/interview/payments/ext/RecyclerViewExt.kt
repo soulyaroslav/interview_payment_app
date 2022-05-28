@@ -4,7 +4,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-fun RecyclerView.spaceDecorator(itemOffset: Int, spanCount: Int, includeEdge: Boolean = true) {
+fun RecyclerView.spaceDecorator(itemOffset: Int, spanCount: Int = 1, includeEdge: Boolean = true) {
     addItemDecoration(object : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
             super.getItemOffsets(outRect, view, parent, state)

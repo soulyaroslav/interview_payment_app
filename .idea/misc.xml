@@ -3,10 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/drawable/bg_button_primary.xml" value="0.209375" />
+        <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/drawable/bg_white_corners_top_10.xml" value="0.209375" />
+        <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/drawable/ic_baseline_credit_card_24.xml" value="0.209375" />
         <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/activity_main.xml" value="0.1381340579710145" />
+        <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/dialog_select_payment_card.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/fragment_chair_list.xml" value="0.1381340579710145" />
         <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/fragment_furniture.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/fragment_furniture_details.xml" value="0.25" />
+        <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/fragment_payment.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/item_card.xml" value="0.33" />
         <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/item_furniture.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/item_furniture_preview.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/item_furniture_with_discount.xml" value="0.1721014492753623" />
       </map>
     </option>

@@ -2,6 +2,7 @@ package com.interview.payments.data.repository
 
 import com.interview.payments.R
 import com.interview.payments.data.dto.FurnitureDto
+import com.interview.payments.domain.pojo.Card
 import com.interview.payments.domain.pojo.Furniture
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
@@ -131,10 +132,30 @@ class MockApiService {
         )
     }
 
+    suspend fun getMockFurniturePreviews() = coroutineScope {
+        delay(DELAY)
+
+        listOf(R.drawable.chair_0, R.drawable.chair_1, R.drawable.chair_2)
+    }
+
+    suspend fun getMockCard() = listOf(
+        Card(
+            number = "5555 6666 0000 1111",
+            expirationDay = "02/06/24",
+            "Test User"
+        ),
+        Card(
+            number = "5555 6666 0000 2222",
+            expirationDay = "02/06/24",
+            "Test User"
+        )
+    )
+
     private fun randImage(): Int {
         val rand = (0..2).random()
         return furnitureImages[rand]
     }
+
     private val furnitureImages = listOf(
         R.drawable.chair_0,
         R.drawable.chair_1,

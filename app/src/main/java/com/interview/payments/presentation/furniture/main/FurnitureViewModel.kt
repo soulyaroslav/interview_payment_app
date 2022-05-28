@@ -1,18 +1,18 @@
-package com.interview.payments.presentation.chairs
+package com.interview.payments.presentation.furniture.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.interview.payments.PaymentApplication
+import com.interview.payments.domain.pojo.Furniture
 import com.interview.payments.domain.usecase.GetFurnitureUseCase
-import com.interview.payments.presentation.chairs.adapter.FurnitureItem
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class FurnitureViewModel(private val getFurnitureUseCase: GetFurnitureUseCase = GetFurnitureUseCase()) : ViewModel() {
 
-    private val _state = MutableStateFlow<FurnitureState>(FurnitureState.LoadingContent)
-    val state: StateFlow<FurnitureState> = _state
+    private val _state = MutableStateFlow<State>(State.LoadingContent)
+    val state: StateFlow<State> = _state
 
     init {
         getFurniture()
@@ -21,12 +21,12 @@ class FurnitureViewModel(private val getFurnitureUseCase: GetFurnitureUseCase = 
     private fun getFurniture() {
         viewModelScope.launch {
             val furniture = getFurnitureUseCase.execute()
-            _state.emit(FurnitureState.UpdatingContent(furniture))
+            _state.emit(State.UpdatingContent(furniture))
         }
     }
-}
 
-sealed class FurnitureState {
-    object LoadingContent : FurnitureState()
-    data class UpdatingContent(val furniture: List<FurnitureItem>) : FurnitureState()
+    sealed class State {
+        object LoadingContent : State()
+        data class UpdatingContent(val furniture: List<Furniture>) : State()
+    }
 }

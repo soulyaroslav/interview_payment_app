@@ -3,11 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/chairListFragment">
+    app:startDestination="@id/furnitureFragment">
 
     <fragment
-        android:id="@+id/chairListFragment"
-        android:name="com.interview.payments.presentation.chairs.FurnitureFragment"
+        android:id="@+id/furnitureFragment"
+        android:name="com.interview.payments.presentation.furniture.main.FurnitureFragment"
         android:label="ChairListFragment"
-        tools:layout="@layout/fragment_furniture"/>
+        tools:layout="@layout/fragment_furniture">
+        <action
+            android:id="@+id/toFurnitureDetails"
+            app:destination="@id/furnitureDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/furnitureDetailsFragment"
+        android:name="com.interview.payments.presentation.furniture.details.FurnitureDetailsFragment"
+        android:label="FurnitureDetailsFragment"
+        tools:layout="@layout/fragment_furniture_details">
+        <argument
+            android:name="furniture"
+            app:argType="com.interview.payments.domain.pojo.Furniture" />
+        <action
+            android:id="@+id/toSelectPaymentCard"
+            app:destination="@id/selectPaymentCardBottomSheetDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/selectPaymentCardBottomSheetDialog"
+        android:name="com.interview.payments.presentation.card.select.SelectPaymentCardBottomSheetDialog"
+        android:label="SelectPaymentCardBottomSheetDialog"
+        tools:layout="@layout/dialog_select_payment_card">
+        <action
+            android:id="@+id/toPayment"
+            app:destination="@id/paymentFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.interview.payments.presentation.card.payment.PaymentFragment"
+        android:label="PaymentFragment"
+        tools:layout="@layout/fragment_payment">
+        <argument
+            android:name="card"
+            app:argType="com.interview.payments.domain.pojo.Card"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 </navigation>

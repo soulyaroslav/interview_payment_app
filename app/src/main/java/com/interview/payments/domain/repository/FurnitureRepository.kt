@@ -4,4 +4,5 @@ import com.interview.payments.domain.pojo.Furniture
 
 interface FurnitureRepository {
     suspend fun getFurniture() : List<Furniture>
+    suspend fun getFurniturePreviews() : List<Int>
 }

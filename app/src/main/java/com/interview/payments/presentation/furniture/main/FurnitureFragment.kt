@@ -1,26 +1,30 @@
-package com.interview.payments.presentation.chairs
+package com.interview.payments.presentation.furniture.main
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.interview.payments.R
 import com.interview.payments.databinding.FragmentFurnitureBinding
+import com.interview.payments.domain.pojo.Furniture
 import com.interview.payments.ext.spaceDecorator
-import com.interview.payments.presentation.chairs.adapter.FurnitureAdapter
+import com.interview.payments.presentation.BaseFragment
+import com.interview.payments.presentation.furniture.main.adapter.FurnitureAdapter
 
-class FurnitureFragment : Fragment(R.layout.fragment_furniture) {
+class FurnitureFragment : BaseFragment<FragmentFurnitureBinding>(R.layout.fragment_furniture) {
 
-    private var binding: FragmentFurnitureBinding? = null
     private val viewModel: FurnitureViewModel by viewModels()
-    private val furnitureAdapter by lazy { FurnitureAdapter() }
+    private val furnitureAdapter by lazy {
+        FurnitureAdapter { navigateToFurnitureDetails(it) }
+    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding = FragmentFurnitureBinding.bind(view)
-        prepareViews()
+    override fun bind(view: View) = FragmentFurnitureBinding.bind(view)
+
+    override fun onViewBound(binding: FragmentFurnitureBinding) {
+        prepareViews(binding)
         observeState()
     }
 
@@ -30,7 +34,7 @@ class FurnitureFragment : Fragment(R.layout.fragment_furniture) {
         }
     }
 
-    private fun prepareViews() = binding?.apply {
+    private fun prepareViews(binding: FragmentFurnitureBinding) = with(binding) {
         furnitureRV.apply {
             layoutManager = GridLayoutManager(requireContext(), SPAN_COUNT)
             adapter = furnitureAdapter
@@ -38,15 +42,18 @@ class FurnitureFragment : Fragment(R.layout.fragment_furniture) {
         }
     }
 
-    private fun handleState(state: FurnitureState) = binding?.apply {
+    private fun handleState(state: FurnitureViewModel.State) = binding?.apply {
         when (state) {
-            FurnitureState.LoadingContent -> furnitureProgress.show()
-            is FurnitureState.UpdatingContent -> {
+            FurnitureViewModel.State.LoadingContent -> furnitureProgress.show()
+            is FurnitureViewModel.State.UpdatingContent -> {
                 furnitureProgress.hide()
                 furnitureAdapter.submitList(state.furniture)
             }
         }
     }
+
+    private fun navigateToFurnitureDetails(furniture: Furniture) = findNavController()
+        .navigate(FurnitureFragmentDirections.toFurnitureDetails(furniture))
 
     override fun onDestroyView() {
         binding = null

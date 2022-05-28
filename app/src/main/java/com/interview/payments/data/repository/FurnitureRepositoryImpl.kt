@@ -10,6 +10,9 @@ class FurnitureRepositoryImpl constructor(
     private val service: MockApiService = MockApiService(),
     private val mapper: Mapper<FurnitureDto, Furniture> = FurnitureMapper()
 ) : FurnitureRepository {
+
     override suspend fun getFurniture(): List<Furniture> = service.getMockFurniture()
         .map { mapper.map(it) }
+
+    override suspend fun getFurniturePreviews(): List<Int> = service.getMockFurniturePreviews()
 }
