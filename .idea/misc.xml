@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/activity_main.xml" value="0.1381340579710145" />
+        <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/fragment_chair_list.xml" value="0.1381340579710145" />
+        <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/fragment_furniture.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/item_furniture.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/souly/Downloads/uCrop-develop/InterviewPaymentApp/app/src/main/res/layout/item_furniture_with_discount.xml" value="0.1721014492753623" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

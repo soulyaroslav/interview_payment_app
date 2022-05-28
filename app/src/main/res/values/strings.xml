@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">InterviewPaymentApp</string>
+    <string name="toolbar_furniture_title">Furniture</string>
 </resources>
