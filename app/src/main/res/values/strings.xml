@@ -6,4 +6,18 @@
     <string name="buy_title">Buy</string>
     <string name="select_payment_card_title">Select payment card</string>
     <string name="add_new_card_title">Add new card</string>
+    <string name="pay_title">Pay</string>
+    <string name="name_on_card_title">Name on card</string>
+    <string name="secure_code_title">Secure code</string>
+    <string name="expiry_date_title">Expiry date</string>
+    <string name="card_number_title">Card number</string>
+    <string name="card_number_validation_error">Card number should not be empty</string>
+    <string name="expiration_day_validation_error">Expiration day should not be empty</string>
+    <string name="secure_code_validation_error">Secure code should not be empty</string>
+    <string name="holder_name_validation_error">Holder name should not be empty</string>
+    <string name="card_legth_validation_error">Card length should be 16 digit</string>
+    <string name="secure_code_length_validation_error">Secure code length should be 3 digits</string>
+    <string name="card_date_holder">**/**</string>
+    <string name="card_placeholder_title">**** **** **** ****</string>
+    <string name="expiry_date_format_validation_error">Expiry date should has format like MM/dd</string>
 </resources>

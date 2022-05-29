@@ -1,20 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/cardNumberACTV"
-        android:text="3454 6563 6632 7771"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/size_10"
+        android:layout_marginBottom="@dimen/size_10"
+        android:background="@drawable/bg_grey_corners_20"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        android:layout_marginEnd="@dimen/size_20"
+        android:layout_marginStart="@dimen/size_20"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/appCompatImageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_mastercard" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cardPreviewACTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/card_placeholder_title"
+            android:textAppearance="@style/AppTheme.Text.Headline2.Black"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline4"
+            tools:text="2525 2525 2525 2525" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cardExpiryPreviewACTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/AppTheme.Text.Headline5.Black"
+            app:layout_constraintBottom_toBottomOf="@+id/cardHolderPreviewACTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/size_20"
+            android:text="@string/card_date_holder"
+            app:layout_constraintTop_toTopOf="@+id/cardHolderPreviewACTV"
+            tools:text="03/12" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cardHolderPreviewACTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/size_10"
+            android:layout_marginStart="@dimen/size_20"
+            android:textAppearance="@style/AppTheme.Text.Headline4.Black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Test User" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:textAppearance="@style/AppTheme.Text.Headline3.Black"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_grey_corners_top_20"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cardNumberTIL"
+        style="@style/AppTheme.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_15"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_marginEnd="@dimen/size_15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cardNumberTIET"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/card_number_title"
+            android:inputType="number"
+            android:maxLength="20"
+            android:nextFocusDown="@id/expiryDateTIET"
+            android:textAppearance="@style/AppTheme.Text.Paragraph2.LightGrey"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expiryDateTIL"
+        style="@style/AppTheme.TextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_15"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_marginEnd="@dimen/size_15"
+        app:layout_constraintEnd_toStartOf="@id/secureCodeTIL"
+        app:layout_constraintHorizontal_weight=".5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardNumberTIL">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expiryDateTIET"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/expiry_date_title"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textAppearance="@style/AppTheme.Text.Paragraph2.LightGrey"
+            android:textSize="18sp"
+            android:nextFocusDown="@id/secureCodeTIET"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/secureCodeTIL"
+        style="@style/AppTheme.TextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_15"
+        android:layout_marginEnd="@dimen/size_15"
+        android:layout_marginTop="@dimen/size_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight=".5"
+        app:layout_constraintStart_toEndOf="@id/expiryDateTIL"
+        app:layout_constraintTop_toBottomOf="@+id/cardNumberTIL">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/secureCodeTIET"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/secure_code_title"
+            android:inputType="number"
+            android:maxLength="3"
+            android:nextFocusDown="@id/cardHolderTIET"
+            android:textAppearance="@style/AppTheme.Text.Paragraph2.LightGrey"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/cardHolderTIL"
+        style="@style/AppTheme.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_15"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_marginEnd="@dimen/size_15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/expiryDateTIL">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cardHolderTIET"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/name_on_card_title"
+            android:inputType="text"
+            android:textAppearance="@style/AppTheme.Text.Paragraph2.LightGrey"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/paymentMB"
+        style="@style/AppTheme.Button.Primary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_15"
+        android:layout_marginEnd="@dimen/size_15"
+        android:layout_marginBottom="@dimen/size_15"
+        android:elevation="@dimen/size_5"
+        android:text="@string/pay_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

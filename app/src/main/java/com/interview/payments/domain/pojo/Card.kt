@@ -7,5 +7,6 @@ import kotlinx.parcelize.Parcelize
 data class Card(
     val number: String,
     val expirationDay: String,
+    val secureCode: String,
     val holderName: String
 ) : Parcelable
