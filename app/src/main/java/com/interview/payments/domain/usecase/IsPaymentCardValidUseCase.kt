@@ -7,8 +7,9 @@ import java.text.DateFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
+import javax.inject.Inject
 
-class IsPaymentCardValidUseCase : UseCaseParams<ValidationResult, IsPaymentCardValidUseCase.Params> {
+class IsPaymentCardValidUseCase @Inject constructor(): UseCaseParams<ValidationResult, IsPaymentCardValidUseCase.Params> {
     class Params private constructor(val number: String, val expirationDay: String, val secureCode: String, val holderName: String) {
         companion object {
             fun toParams(number: String, expirationDay: String, secureCode: String, holderName: String) =

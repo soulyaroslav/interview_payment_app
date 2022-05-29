@@ -20,4 +20,6 @@
     <string name="card_date_holder">**/**</string>
     <string name="card_placeholder_title">**** **** **** ****</string>
     <string name="expiry_date_format_validation_error">Expiry date should has format like MM/dd</string>
+    <string name="alert_dialog_title">Payment</string>
+    <string name="success_payment_message">Success payment</string>
 </resources>

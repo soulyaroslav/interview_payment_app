@@ -8,7 +8,9 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.NavHostController
 import androidx.navigation.fragment.NavHostFragment
 import com.interview.payments.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val navController by lazy { findParentNavController(R.id.navHostFragment) }
     private lateinit var binding: ActivityMainBinding

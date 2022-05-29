@@ -1,15 +1,15 @@
-package com.interview.payments.data.repository
+package com.interview.payments.data
 
 import com.interview.payments.R
+import com.interview.payments.data.MockHelper.DELAY
+import com.interview.payments.data.MockHelper.randImage
 import com.interview.payments.data.dto.FurnitureDto
 import com.interview.payments.domain.pojo.Card
-import com.interview.payments.domain.pojo.Furniture
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.supervisorScope
-import kotlin.coroutines.suspendCoroutine
+import javax.inject.Inject
 
-class MockApiService {
+class MockApiService @Inject constructor() {
 
     suspend fun getMockFurniture() = coroutineScope {
         delay(DELAY)
@@ -141,30 +141,25 @@ class MockApiService {
     suspend fun getMockCard() = listOf(
         Card(
             number = "5555 6666 0000 1111",
-            expirationDay = "02/06/24",
+            expirationDay = "02/06",
             secureCode = "453",
             "Test User"
         ),
         Card(
             number = "5555 6666 0000 2222",
-            expirationDay = "02/06/24",
+            expirationDay = "02/06",
             secureCode = "453",
             "Test User"
         )
     )
 
-    private fun randImage(): Int {
-        val rand = (0..2).random()
-        return furnitureImages[rand]
-    }
-
-    private val furnitureImages = listOf(
-        R.drawable.chair_0,
-        R.drawable.chair_1,
-        R.drawable.chair_2
-    )
-
-    companion object {
-        const val DELAY = 3000L
+    suspend fun makePayment(card: Card): Boolean {
+        delay(DELAY)
+        return when (card.number) {
+            MockHelper.CardErrorType.BALANCE_INSUFFICIENT.number -> throw IllegalStateException("Insufficient balance")
+            MockHelper.CardErrorType.CARD_DECLINE.number -> throw IllegalStateException("The card was decline")
+            MockHelper.CardErrorType.EXPIRED_CARD.number -> throw IllegalStateException("The card was expired")
+            else -> true
+        }
     }
 }

@@ -8,12 +8,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginStart="@dimen/size_20"
         android:layout_marginTop="@dimen/size_10"
+        android:layout_marginEnd="@dimen/size_20"
         android:layout_marginBottom="@dimen/size_10"
         android:background="@drawable/bg_grey_corners_20"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
-        android:layout_marginEnd="@dimen/size_20"
-        android:layout_marginStart="@dimen/size_20"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -48,11 +48,11 @@
             android:id="@+id/cardExpiryPreviewACTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/size_20"
+            android:text="@string/card_date_holder"
             android:textAppearance="@style/AppTheme.Text.Headline5.Black"
             app:layout_constraintBottom_toBottomOf="@+id/cardHolderPreviewACTV"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="@dimen/size_20"
-            android:text="@string/card_date_holder"
             app:layout_constraintTop_toTopOf="@+id/cardHolderPreviewACTV"
             tools:text="03/12" />
 
@@ -60,8 +60,8 @@
             android:id="@+id/cardHolderPreviewACTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/size_10"
             android:layout_marginStart="@dimen/size_20"
+            android:layout_marginBottom="@dimen/size_10"
             android:textAppearance="@style/AppTheme.Text.Headline4.Black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -122,10 +122,10 @@
             android:layout_height="match_parent"
             android:hint="@string/expiry_date_title"
             android:inputType="number"
-            android:maxLength="4"
+            android:maxLength="5"
+            android:nextFocusDown="@id/secureCodeTIET"
             android:textAppearance="@style/AppTheme.Text.Paragraph2.LightGrey"
-            android:textSize="18sp"
-            android:nextFocusDown="@id/secureCodeTIET"/>
+            android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -134,8 +134,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/size_15"
-        android:layout_marginEnd="@dimen/size_15"
         android:layout_marginTop="@dimen/size_20"
+        android:layout_marginEnd="@dimen/size_15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight=".5"
         app:layout_constraintStart_toEndOf="@id/expiryDateTIL"
@@ -182,18 +182,33 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.35" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/paymentMB"
-        style="@style/AppTheme.Button.Primary"
+    <FrameLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/size_15"
-        android:layout_marginEnd="@dimen/size_15"
         android:layout_marginBottom="@dimen/size_15"
-        android:elevation="@dimen/size_5"
-        android:text="@string/pay_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/paymentMB"
+            style="@style/AppTheme.Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_15"
+            android:layout_marginEnd="@dimen/size_15"
+            android:elevation="@dimen/size_5"
+            android:text="@string/pay_title" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/paymentProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/progressBarStyleSmall"
+            android:minHeight="@dimen/size_30"
+            android:minWidth="@dimen/size_30"
+            android:elevation="@dimen/size_6"
+            android:layout_gravity="center"/>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

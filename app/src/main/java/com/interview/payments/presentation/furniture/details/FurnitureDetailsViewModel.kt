@@ -3,14 +3,17 @@ package com.interview.payments.presentation.furniture.details
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.interview.payments.domain.usecase.GetFurniturePreviewsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.consumeEach
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FurnitureDetailsViewModel(
-    private val getFurniturePreviewsUseCase: GetFurniturePreviewsUseCase = GetFurniturePreviewsUseCase()
+@HiltViewModel
+class FurnitureDetailsViewModel @Inject constructor(
+    private val getFurniturePreviewsUseCase: GetFurniturePreviewsUseCase
 ) : ViewModel() {
 
     private val _state = MutableStateFlow<State>(State.LoadingContent)

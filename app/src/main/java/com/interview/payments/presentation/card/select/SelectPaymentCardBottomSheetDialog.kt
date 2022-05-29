@@ -10,7 +10,9 @@ import com.interview.payments.domain.pojo.Card
 import com.interview.payments.ext.spaceDecorator
 import com.interview.payments.presentation.BaseBottomSheetDialog
 import com.interview.payments.presentation.card.select.adapter.CardAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SelectPaymentCardBottomSheetDialog : BaseBottomSheetDialog<DialogSelectPaymentCardBinding>(
     layoutId = R.layout.dialog_select_payment_card,
     backgroundId = R.drawable.bg_white_corners_top_10
@@ -41,8 +43,7 @@ class SelectPaymentCardBottomSheetDialog : BaseBottomSheetDialog<DialogSelectPay
 
     private fun handleState(state: SelectPaymentCardViewModel.State) {
         when (state) {
-            SelectPaymentCardViewModel.State.LoadingContent -> {
-            }
+            SelectPaymentCardViewModel.State.LoadingContent -> { }
             is SelectPaymentCardViewModel.State.UpdatingContent -> {
                 cardAdapter.submitList(state.cards)
             }

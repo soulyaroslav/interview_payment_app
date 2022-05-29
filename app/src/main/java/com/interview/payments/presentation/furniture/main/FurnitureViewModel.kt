@@ -4,12 +4,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.interview.payments.domain.pojo.Furniture
 import com.interview.payments.domain.usecase.GetFurnitureUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FurnitureViewModel(private val getFurnitureUseCase: GetFurnitureUseCase = GetFurnitureUseCase()) : ViewModel() {
+@HiltViewModel
+class FurnitureViewModel @Inject constructor(private val getFurnitureUseCase: GetFurnitureUseCase) : ViewModel() {
 
     private val _state = MutableStateFlow<State>(State.LoadingContent)
     val state: StateFlow<State> = _state

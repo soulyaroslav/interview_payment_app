@@ -1,12 +1,8 @@
 package com.interview.payments.domain.usecase
 
-import com.interview.payments.data.repository.FurnitureRepositoryImpl
-import com.interview.payments.domain.pojo.Furniture
 import com.interview.payments.domain.repository.FurnitureRepository
+import javax.inject.Inject
 
-class GetFurniturePreviewsUseCase(
-    private val repository: FurnitureRepository = FurnitureRepositoryImpl()
-) : UseCase<List<Int>> {
-
+class GetFurniturePreviewsUseCase @Inject constructor(private val repository: FurnitureRepository) : UseCase<List<Int>> {
     override suspend fun execute(): List<Int> = repository.getFurniturePreviews()
 }

@@ -1,27 +1,31 @@
 package com.interview.payments.presentation.furniture.main
 
-import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.fragment.app.Fragment
+import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.interview.payments.R
 import com.interview.payments.databinding.FragmentFurnitureBinding
+import com.interview.payments.databinding.FragmentFurnitureDetailsBinding
 import com.interview.payments.domain.pojo.Furniture
 import com.interview.payments.ext.spaceDecorator
 import com.interview.payments.presentation.BaseFragment
 import com.interview.payments.presentation.furniture.main.adapter.FurnitureAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
-class FurnitureFragment : BaseFragment<FragmentFurnitureBinding>(R.layout.fragment_furniture) {
+@AndroidEntryPoint
+class FurnitureFragment : BaseFragment<FragmentFurnitureBinding>() {
 
     private val viewModel: FurnitureViewModel by viewModels()
     private val furnitureAdapter by lazy {
         FurnitureAdapter { navigateToFurnitureDetails(it) }
     }
 
-    override fun bind(view: View) = FragmentFurnitureBinding.bind(view)
+    override fun inflate(inflater: LayoutInflater, container: ViewGroup?) =
+        FragmentFurnitureBinding.inflate(inflater, container, false)
 
     override fun onViewBound(binding: FragmentFurnitureBinding) {
         prepareViews(binding)
